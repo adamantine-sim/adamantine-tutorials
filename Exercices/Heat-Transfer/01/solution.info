@@ -1,0 +1,21 @@
+geometry
+{
+  import_mesh false ; Use built-in mesh generator
+  dim 3 ; dimension of the domain
+  length 10e-3 ; [m]
+  height 2.0e-3 ; [m]
+  width  10e-3 ; [m]
+  length_divisions 50 ; Number of cell layers in the length direction
+  height_divisions 8 ; Number of cell layers in the height direction
+  width_divisions  50 ;  Number of cell layers in the width direction
+  material_height 0.75e-3 ; [m]
+
+  ; Below are the data defining the material deposition
+  material_deposition true
+  material_deposition_method scan_paths
+  deposition_length 0.0003
+  deposition_height 0.0002
+  deposition_width 0.0003
+}
+
+#include "demo_316_short.info"
