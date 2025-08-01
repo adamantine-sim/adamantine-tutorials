@@ -19,54 +19,18 @@ geometry
   deposition_lead_time 0.0005
 }
 
-materials
+boundary
 {
-  n_materials 1
+  type convective,radiative
+}
 
-  property_format polynomial
-  material_0
-  {
-    solid
-    {
-      density 7904; [kg/m^3] For now all the states needs to have the same
-                    ; density.
-      specific_heat 714; [J/kg K]
-      thermal_conductivity_x 31.4 ; [W/m K]
-      thermal_conductivity_y 31.4 ; [W/m K]
-      thermal_conductivity_z 31.4 ; [W/m K]
-      convection_heat_transfer_coef 100 ; [W/(m^2*K)]
-      emissivity 0.15
-    }
+time_stepping
+{
+  duration 0.004 ; [s]
+  time_step 0.6e-4 ; [s]
 
-    powder
-    {
-      specific_heat 714; [J/kg K]
-      density 7904; [kg/m^3]
-      thermal_conductivity_x 0.314 ; [W/m K]
-      thermal_conductivity_y 0.314 ; [W/m K]
-      thermal_conductivity_z 0.314 ; [W/m K]
-      convection_heat_transfer_coef 100 ; [W/(m^2*K)]
-      emissivity 0.15
-    }
-
-    liquid
-    {
-      specific_heat 847; [J/kg K]
-      density 7904; [kg/m^3]
-      thermal_conductivity_x 37.3 ; [W/m k]
-      thermal_conductivity_y 37.3 ; [W/m k]
-      thermal_conductivity_z 37.3 ; [W/m k]
-      convection_heat_transfer_coef 100 ; [W/(m^2*K)]
-      emissivity 0.15
-      ; Not all three states need to define the same properties or to exist
-    }
-
-    solidus 1675; [K]
-    liquidus 1708; [K]
-    latent_heat 290000 ; [J/kg]
-    radiation_temperature_infty 300 ; [K]
-    convection_temperature_infty 300 ; [K]
-  }
+  method forward_euler ; Possibilities: forward_euler, rk_third_order,
+                        ; rk_fourth_order
 }
 
 sources
@@ -87,17 +51,37 @@ sources
   }
 }
 
-boundary
-{ 
-  ; Set the boundary to convective and radiative
-}
-
-time_stepping
+materials
 {
-  ; Set the end time of the simulation to 4e-3 s and the time step to 6e-5 s.
+   n_materials 1 ; There is only one material
 
-  method forward_euler ; Possibilities: forward_euler, rk_third_order,
-                       ; rk_fourth_order
+   property_format polynomial ; We will assume that the material properties are
+                              ; independent of the temperature
+                              
+   ; Use the following properties
+   ; solidus = 1675 K
+   ; liquidus = 1708 K
+   ; latent heat = 29000 J/kg
+   ; radiation temperature at infinity = 300 K
+   ; convection temperature at infinity = 300 K
+   ; for the solid state:
+   ;  - density = 7904 kg/m^3
+   ;  - specific heat = 714 J/kg K
+   ;  - thermal conductivity = 31.4 W/m K
+   ;  - convection heat transfer coefficient = 100 W/(m^2*K)
+   ;  - emissitivity
+   ; for the powder state:
+   ;  - density = 7904 kg/m^3
+   ;  - specific heat = 714 J/kg K
+   ;  - thermal conductivity = 0.314 W/m K
+   ;  - convection heat transfer coefficient = 100 W/(m^2*K)
+   ;  - emissitivity
+   ; for the liquid state:
+   ;  - density = 7904 kg/m^3
+   ;  - specific heat = 847 J/kg K
+   ;  - thermal conductivity = 37.3 W/m K
+   ;  - convection heat transfer coefficient = 100 W/(m^2*K)
+   ;  - emissitivity
 }
 
 #include "demo_316_short.info"

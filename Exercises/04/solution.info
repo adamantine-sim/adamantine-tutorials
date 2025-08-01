@@ -19,6 +19,38 @@ geometry
   deposition_lead_time 0.0005
 }
 
+boundary
+{
+  type convective,radiative
+}
+
+time_stepping
+{
+  duration 0.004 ; [s]
+  time_step 0.6e-4 ; [s]
+
+  method forward_euler ; Possibilities: forward_euler, rk_third_order,
+                        ; rk_fourth_order
+}
+
+sources
+{
+  n_beams 1
+
+  beam_0
+  {
+    type goldak ; goldak (laser) or electron_beam
+    depth 0.5e-3 ; [m] maximum depth reached by the laser
+    diameter 0.6e-3 ; [m]
+    scan_path_file demo_316_short_scan_path.txt
+    scan_path_file_format segment
+    absorption_efficiency 0.3 ; number between 0 and 1 equivalent to
+                              ; energy_conversion_efficiency * control_efficiency
+                              ; for an electron beam
+    max_power 400.0 ; [W], current * voltage for an electron beam
+  }
+}
+
 materials
 {
   n_materials 1
@@ -67,37 +99,6 @@ materials
     radiation_temperature_infty 300 ; [K]
     convection_temperature_infty 300 ; [K]
   }
-}
-
-sources
-{
-  n_beams 1
-
-  beam_0
-  {
-    type goldak ; goldak (laser) or electron_beam
-    depth 0.5e-3 ; [m] maximum depth reached by the laser
-    diameter 0.6e-3 ; [m]
-    scan_path_file demo_316_short_scan_path.txt
-    scan_path_file_format segment
-    absorption_efficiency 0.3 ; number between 0 and 1 equivalent to
-                              ; energy_conversion_efficiency * control_efficiency
-                              ; for an electron beam
-    max_power 400.0 ; [W], current * voltage for an electron beam
-  }
-}
-
-boundary
-{
-  type convective,radiative
-}
-
-time_stepping
-{
-  method forward_euler ; Possibilities: forward_euler, rk_third_order,
-                       ; rk_fourth_order
-  duration 0.004 ; [s]
-  time_step 0.6e-4 ; [s]
 }
 
 #include "demo_316_short.info"
