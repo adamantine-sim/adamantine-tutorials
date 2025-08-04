@@ -1,0 +1,97 @@
+geometry
+{
+  import_mesh false ; Use built-in mesh generator
+  dim 3 ; dimension of the domain
+  length 5.0e-3 ; [m]
+  height 0.5e-3 ; [m] In 3D, the third parameters is width
+  width  5.0e-3
+  length_divisions 25 ; Number of cell layers in the length direction
+  height_divisions 2 ; Number of cell layers in the height direction
+  width_divisions  25
+}
+
+boundary
+{
+  type adiabatic ;
+}
+
+time_stepping
+{
+  method forward_euler ; Possibilities: backward_euler, implicit_midpoint,
+                        ; crank_nicolson, sdirk2, forward_euler, rk_third_order,
+                        ; rk_fourth_order
+  duration 5.0e-2 ; [s]
+  time_step 5.0e-5 ; [s]
+}
+
+sources
+{
+  n_beams 1
+
+  beam_0
+  {
+    type goldak ; goldak (laser) or electron_beam
+    depth 0.5e-3 ; [m] maximum depth reached by the laser
+    diameter 0.6e-3 ; [m]
+    scan_path_file bare_plate_L_scan_path.txt
+    scan_path_file_format segment
+    absorption_efficiency 0.3 ; number between 0 and 1 equivalent to
+                              ; energy_conversion_efficiency * control_efficiency
+                              ; for an electron beam
+    max_power 400.0 ; [W], current * voltage for an electron beam
+  }
+}
+
+materials
+{
+  n_materials 1
+
+  property_format polynomial
+  initial_temperature 300
+
+  material_0
+  {
+    solid
+    {
+      density 7904; [kg/m^3] For now all the states needs to have the same
+                    ; density.
+      specific_heat 714; [J/kg K]
+      thermal_conductivity_x 31.4 ; [W/m K]
+      thermal_conductivity_y 31.4 ; [W/m K]
+      thermal_conductivity_z 31.4 ; [W/m K]
+    }
+
+    powder
+    {
+      specific_heat 714; [J/kg K]
+      density 7904; [kg/m^3]
+      thermal_conductivity_x 0.314 ; [W/m K]
+      thermal_conductivity_y 0.314 ; [W/m K]
+      thermal_conductivity_z 0.314 ; [W/m K]
+    }
+
+    liquid
+    {
+      specific_heat 847; [J/kg K]
+      density 7904; [kg/m^3]
+      thermal_conductivity_x 37.3 ; [W/m k]
+      thermal_conductivity_y 37.3 ; [W/m k]
+      thermal_conductivity_z 37.3 ; [W/m k]
+      ; Not all three states need to define the same properties or to exist
+    }
+
+    solidus 1675; [K]
+    liquidus 1708; [K]
+    latent_heat 290000 ; [J/kg]
+  }
+}
+
+ensemble
+{
+  ; Run an ensemble of three simulations. Set the standard deviation on the
+  ; initial temperature to 10
+
+  ensemble_simulation true
+}
+
+#include "bare_plat_L_enesmble.info"
