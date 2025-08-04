@@ -94,4 +94,4 @@ ensemble
   ensemble_simulation true
 }
 
-#include "bare_plat_L_enesmble.info"
+#include "bare_plate_L_ensemble.info"
