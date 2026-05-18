@@ -61,7 +61,7 @@ materials
    ; Use the following properties
    ; solidus = 1675 K
    ; liquidus = 1708 K
-   ; latent heat = 29000 J/kg
+   ; latent heat = 290000 J/kg
    ; radiation temperature at infinity = 300 K
    ; convection temperature at infinity = 300 K
    ; for the solid state:
