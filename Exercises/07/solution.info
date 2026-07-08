@@ -1,0 +1,10 @@
+time_stepping
+{
+  scan_path_for_duration true
+  time_step 0.6e-4 ; [s]
+
+  method forward_euler ; Possibilities: forward_euler, rk_third_order,
+                       ; rk_fourth_order
+}
+
+#include "drip_feed.info"

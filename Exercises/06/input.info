@@ -1,0 +1,24 @@
+experiment
+{
+  read_in_experimental_data true
+
+  ; The log file is found at observations/build_time_log.txt
+  ; The observations are in the files observations/build_#camera_#frame.csv
+  ; There is only one camera (0)
+  ; The estimated uncertainty is 25.0
+}
+
+data_assimilation
+{
+  assimilate_data true
+  solver
+  {
+    max_number_of_temp_vectors 100
+    convergence_tolerance 1.0e-4
+    max_iterations 100000
+  }
+
+  ; Use gaspari_cohn cutoff function and a localization distance of 5.0e-3
+}
+
+#include "data_assimilation.info"

@@ -11,3 +11,7 @@ List of  exercises:
 3. **Exercise 03**: Define the heat source.
 4. **Exercise 04**: Set the material properties.
 5. **Exercise 05**: Run ensemble simulation.
+6. **Exercise 06**: Use data assimilation to improve solution.
+7. **Exercise 07**: Drip feed scan paths.
+8. **Exercise 08**: Solve an elastoplastic problem.
+9. **Exercies 09**: Solve a thermomechanical problem.
