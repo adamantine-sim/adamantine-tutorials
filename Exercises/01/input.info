@@ -1,7 +1,13 @@
 geometry
 {
-  ; Create a 3D mesh of size [0.01, 0.002, 0.01] with the following number of
-  ; number of cells in each direction [50, 8, 50]. 
+  ; Create a 3D mesh of size:
+  ;  - length = 0.01
+  ;  - width = 0.002
+  ;  - height = 0.01 
+  ; with the following number of number of cells (divisions) in 
+  ;  - length = 50
+  ;  - width = 8
+  ;  - height = 50 
   ; Fill the domain with material up to 0.00075 [m]
 
   ; Below are the data defining the material deposition
