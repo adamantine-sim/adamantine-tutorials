@@ -9,6 +9,7 @@ the scan path in `drip_feed_scan_path.txt`. Write is not an atomic operation.
 Instead create a temporary file and them overwrite (using `mv`) 
 `drip_feed_scan_path.txt`. You can run the exercise using `./adamantine -i input.info`. 
 The solution of the exercise is given in `solution.info` and `solution_scan_path.txt`.
+
 Please refer to the documentation in the
 [time_stepping](https://adamantine-sim.github.io/adamantine/doc/input_file.html#time_stepping-required) 
 and [event format](https://adamantine-sim.github.io/adamantine/doc/scan_path.html#event-format) sections.

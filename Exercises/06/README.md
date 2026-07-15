@@ -6,4 +6,4 @@ file. You can run the exercise using `./adamantine -i input.info`. The solution 
 exercise is given in `solution.info`.
 
 Please refer to the documentation in the
-[data_assimilation](https://adamantine-sim.github.io/adamantine/doc/input_file.html#data_assimilation-optional)
+[data_assimilation](https://adamantine-sim.github.io/adamantine/doc/input_file.html#data_assimilation-optional) section.
