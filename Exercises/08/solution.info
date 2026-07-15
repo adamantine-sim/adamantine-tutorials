@@ -1,0 +1,40 @@
+geometry
+{
+  length 10; [mm]
+  height 2; [mm]
+  width  10; [mm]
+
+
+  import_mesh false ; Use built-in mesh generator
+  dim 3 ; dimension of the domain
+  length_divisions 50 ; Number of cell layers in the length direction
+  height_divisions 8 ; Number of cell layers in the height direction
+  width_divisions  50 ;  Number of cell layers in the width direction
+  material_height 0.75e-3 ; [m]
+
+  material_deposition true
+  material_deposition_method scan_paths
+  deposition_length 0.0003
+  deposition_height 0.0002
+  deposition_width 0.0003
+  deposition_lead_time 0.0005
+}
+
+post_processor
+{
+  filename_prefix output
+  time_steps_between_output 10
+}
+
+refinement
+{
+  n_refinements 1
+  time_steps_between_refinement 5
+}
+
+units
+{
+  mesh millimeter
+}
+
+#include "demo_316_short.info"

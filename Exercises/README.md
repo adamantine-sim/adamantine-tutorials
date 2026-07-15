@@ -13,3 +13,4 @@ List of  exercises:
 5. **Exercise 05**: Run ensemble simulation.
 6. **Exercise 06**: Use data assimilation to improve solution.
 7. **Exercise 07**: Drip feed scan paths.
+8. **Exercise 08**: Set postprocessor, refinement, and units parameters.
