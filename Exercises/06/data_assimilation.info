@@ -45,34 +45,6 @@ ensemble
   }
 }
 
-experiment
-{
-  read_in_experimental_data true
-  log_filename observations/build_time_log.txt
-  file observations/build_#camera_#frame.csv
-  format ray
-  first_frame 0
-  last_frame 1000000000
-  first_camera_id 0
-  last_camera_id 0
-  first_frame_temporal_offset 0.0
-  estimated_uncertainty 25.0
-  output_experiment_on_mesh true
-}
-
-data_assimilation
-{
-  assimilate_data true
-  localization_cutoff_function gaspari_cohn
-  localization_cutoff_distance 5.0e-3
-  solver
-  {
-    max_number_of_temp_vectors 100
-    convergence_tolerance 1.0e-4
-    max_iterations 100000
-  }
-}
-
 units
 {
   mesh millimeter
