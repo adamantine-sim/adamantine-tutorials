@@ -12,7 +12,3 @@ The solution of the exercise is given in `solution.info` and `solution_scan_path
 Please refer to the documentation in the
 [time_stepping](https://adamantine-sim.github.io/adamantine/doc/input_file.html#time_stepping-required) 
 and [event format](https://adamantine-sim.github.io/adamantine/doc/scan_path.html#event-format) sections.
-
-Five-axis
-=========
-Modify the scan path to print vertically.
