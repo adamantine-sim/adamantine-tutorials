@@ -6,8 +6,8 @@ geometry
   ;  - height = 0.01 
   ; with the following number of number of cells (divisions) in 
   ;  - length = 50
-  ;  - width = 8
-  ;  - height = 50 
+  ;  - width = 50
+  ;  - height = 8 
   ; Fill the domain with material up to 0.00075 [m]
 
   ; Below are the data defining the material deposition
